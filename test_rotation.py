@@ -14,42 +14,35 @@ class RotationTests(unittest.TestCase):
         s = math.sin(theta)
         c = math.cos(theta)
 
-        if(m[0][0] != c): return False
-        if(m[0][1] != -s): return False
-        if(m[0][2] != 0.0): return False
+        self.assertTrue(m[0][0] == c)
+        self.assertTrue(m[0][1] == -s)
+        self.assertTrue(m[0][2] == 0.0)
 
-        if(m[1][0] != s): return False
-        if(m[1][1] != c): return False
-        if(m[1][2] != 0.0): return False
+        self.assertTrue(m[1][0] == s)
+        self.assertTrue(m[1][1] == c)
+        self.assertTrue(m[1][2] == 0.0)
 
-        if(m[2][0] != 0.0): return False
-        if(m[2][1] != 0.0): return False
-        if(m[2][2] != 1.0): return False
-
-        return True
+        self.assertTrue(m[2][0] == 0.0)
+        self.assertTrue(m[2][1] == 0.0)
+        self.assertTrue(m[2][2] == 1.0)
 
     def check(self, theta):
         """tests if rotation matrix is correctly initialized some angle theta"""
         rot = Rotation(theta)
-
         print(rot.m)
-
-        return self.check_matrix(theta, rot.m)
+        self.check_matrix(theta, rot.m)
 
     def test_matrix_0_pi(self):
         """tests if rotation matrix is correctly initialized for 45 degs"""
-        self.assertTrue(self.check(0))
+        self.check(0)
 
     def test_matrix_pi_4(self):
         """tests if rotation matrix is correctly initialized for 45 degs"""
-        self.assertTrue(self.check(math.pi / 4))
+        self.check(math.pi / 4)
 
     def test_matrix_pi_2(self):
         """tests if rotation matrix is correctly initialized for 90 degs"""
-        self.assertTrue(self.check(math.pi / 2))
-
-
-
+        self.check(math.pi / 2)
 
 if __name__ == '__main__':
     unittest.main()
