@@ -1,13 +1,25 @@
+"""
+Module defines a 2D affine rotation.
+"""
 
-from math import sin, cos 
-
+from math import sin, cos
 from transform import Transform
 
-# Rotation about z-axis.
 class Rotation(Transform):
-    # theta is angle in radians.
+    """
+    2D affine rotation to be used in a matrix multiply operation
+    to rotate a 2D affine point about the origin.
+    """
+
     def __init__(self, theta):
-        Transform.__init__(self) 
+        """
+        Constructor for Rotation class.
+
+        Parameters:
+           theta (float): The rotation angle about the origin in radians.
+        """
+
+        Transform.__init__(self)
         s = sin(theta)
         c = cos(theta)
         self.m[0][0] = c
