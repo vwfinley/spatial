@@ -14,17 +14,17 @@ class RotationTests(unittest.TestCase):
         s = math.sin(theta)
         c = math.cos(theta)
 
-        self.assertTrue(m[0][0] == c)
-        self.assertTrue(m[0][1] == -s)
-        self.assertTrue(m[0][2] == 0.0)
+        self.assertEqual(m[0][0], c)
+        self.assertEqual(m[0][1], -s)
+        self.assertEqual(m[0][2], 0.0)
 
-        self.assertTrue(m[1][0] == s)
-        self.assertTrue(m[1][1] == c)
-        self.assertTrue(m[1][2] == 0.0)
+        self.assertEqual(m[1][0], s)
+        self.assertEqual(m[1][1], c)
+        self.assertEqual(m[1][2], 0.0)
 
-        self.assertTrue(m[2][0] == 0.0)
-        self.assertTrue(m[2][1] == 0.0)
-        self.assertTrue(m[2][2] == 1.0)
+        self.assertEqual(m[2][0], 0.0)
+        self.assertEqual(m[2][1], 0.0)
+        self.assertEqual(m[2][2], 1.0)
 
     def check(self, theta):
         """tests if rotation matrix is correctly initialized some angle theta"""
