@@ -18,7 +18,6 @@ class Rotation(Transform):
         Parameters:
            theta (float): The rotation angle about the origin in radians.
         """
-
         Transform.__init__(self)
         s = sin(theta)
         c = cos(theta)
