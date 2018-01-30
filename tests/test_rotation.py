@@ -1,9 +1,11 @@
 """
     Tests for `rotation.py`.
 """
-
+import sys
 import unittest
 import math
+
+sys.path.insert(0, "..")
 from rotation import Rotation
 
 class RotationTests(unittest.TestCase):
