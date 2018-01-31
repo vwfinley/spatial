@@ -5,7 +5,7 @@ import sys
 import unittest
 
 sys.path.insert(0, "..")
-from translation import translation
+from translation import Translation
 
 class TranslationTests(unittest.TestCase):
     """Tests for 'translation.py'."""
@@ -26,7 +26,7 @@ class TranslationTests(unittest.TestCase):
 
     def __check(self, x, y, m):
         """tests if translation matrix is correctly to some x, y offset."""
-        t = translation(x, y)
+        t = Translation(x, y)
         self.__check_matrix(t, m)
 
     def test_matrix_x0_y0(self):

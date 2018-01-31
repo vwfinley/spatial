@@ -6,7 +6,7 @@ import unittest
 import numpy
 
 sys.path.insert(0, "..")
-from rotation import rotation
+from rotation import Rotation
 
 class RotationTests(unittest.TestCase):
     """Tests for 'rotation.py'."""
@@ -28,7 +28,7 @@ class RotationTests(unittest.TestCase):
     def __check(self, theta_deg, m):
         """tests if rotation matrix is correctly initialized some angle theta"""
         theta = numpy.deg2rad(theta_deg)
-        r = rotation(theta)
+        r = Rotation(theta)
         self.__check_matrix(r, m)
 
     def test_matrix_30(self):
