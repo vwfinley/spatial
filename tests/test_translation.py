@@ -3,12 +3,11 @@
 """
 import sys
 import unittest
-import numpy
 
 sys.path.insert(0, "..")
 from translation import translation
 
-class translation_tests(unittest.TestCase):
+class TranslationTests(unittest.TestCase):
     """Tests for 'translation.py'."""
 
     def __check_matrix(self, t, m):

@@ -1,6 +1,6 @@
 
 import numpy
 
-class identity:
+class Identity:
     def __init__(self):
         self.m = numpy.identity(3)

@@ -3,9 +3,9 @@ Module defines a 2D affine rotation.
 """
 
 from math import sin, cos
-from identity import identity
+from identity import Identity
 
-class rotation(identity):
+class Rotation(Identity):
     """
     2D affine rotation to be used in a matrix multiply operation
     to rotate a 2D affine point about the origin.
@@ -18,7 +18,7 @@ class rotation(identity):
         Parameters:
            theta (float): The rotation angle about the origin in radians.
         """
-        identity.__init__(self)
+        Identity.__init__(self)
         s = sin(theta)
         c = cos(theta)
         self.m[0][0] = c
