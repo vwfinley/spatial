@@ -14,6 +14,9 @@ def cart2pol(x, y):
 
         returns [r, theta]
     """
+    if x == 0.0 and y == 0.0:
+        return [0, 0]
+
     r = hypot(x, y)
     theta = atan2(y, x)
     return [r, theta]
@@ -27,6 +30,9 @@ def pol2cart(r, theta):
 
         returns [x, y]
     """
+    if r < 0.0:
+        raise ValueError("argument r must be >= 0")
+        
     x = r * cos(theta)
     y = r * sin(theta)
     return [x, y]
