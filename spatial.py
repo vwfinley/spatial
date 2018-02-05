@@ -1,15 +1,18 @@
 """
-Module defines a 2D affine transforms.
+Module defines methods to create and manage 2D affine transforms.
 
 Contains 2D affine spatial transforms that can be
 used to transform points in space.  For example:
+
+from numpy import radians
+from spatial import point, rotation
 
 p = point(1, 0)
 r = rotation(radians(45))
 po = r * p
 
 Methods: point, cart2pol, pol2cart, translation, rotation,
-    scale, shear
+    scale, shear.
 """
 from math import sin, cos, tan, hypot, atan2
 from numpy.matlib import identity, ones
