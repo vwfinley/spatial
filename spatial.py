@@ -8,7 +8,8 @@
     r = rotation(radians(45))
     pout = r * p
 
-    Methods:
+    Methods: point, cart2pol, pol2cart, translation, rotation,
+        scale, shear
     Classes:
 """
 from math import sin, cos, tan, hypot, atan2
@@ -36,7 +37,7 @@ def cart2pol(x, y):
         returns [r, theta]
     """
     if x == 0.0 and y == 0.0:
-        return [0, 0]
+        return 0, 0
 
     r = hypot(x, y)
     theta = atan2(y, x)
@@ -128,20 +129,3 @@ def shear(hx, hy):
     
     return m
 
-if __name__ == '__main__':
-
-    p = point(1, 0)
-    t = translation(1.5, -2.5)
-    r = rotation(radians(-45))
-    pout = r * p
-
-    print(cart2pol(p[0], p[1]))
-
-    print(p)
-    print(t)
-    print(r)
-    print(pout)    
-
-    print("r, theta")
-    r, theta = cart2pol(pout[0], pout[1])
-    print(r, degrees(theta))
