@@ -1,25 +1,27 @@
 """
-    Module defines a 2D affine transforms.
+Module defines methods to create and manage 2D affine transforms.
 
-    Contains 2D affine spatial transforms that can be
-    used to transform points in space.  For example:
+Contains 2D affine spatial transforms that can be
+used to transform points in space.  For example:
 
-    p = point(1, 0)
-    r = rotation(radians(45))
-    po = r * p
+from numpy import radians
+from spatial import point, rotation
 
-    Methods: point, cart2pol, pol2cart, translation, rotation,
-        scale, shear
-    Classes:
+p = point(1, 0)
+r = rotation(radians(45))
+po = r * p
+
+Methods: point, cart2pol, pol2cart, translation, rotation,
+    scale, shear.
 """
 from math import sin, cos, tan, hypot, atan2
 from numpy.matlib import identity, ones
-from numpy import radians, degrees
+from numpy import radians
 
 def point(x, y):   
     """
-        2D affine point vector used in 2D spatial transformations. To use,
-        call the matrix '*' operator.
+    2D affine point vector used in 2D spatial transformations. To use,
+    call the matrix '*' operator.
     """
     m = ones((3, 1))
     m[0] = x
@@ -29,12 +31,12 @@ def point(x, y):
 
 def cart2pol(x, y):   
     """
-        Converts x, y to polar coords.
+    Converts x, y to polar coords.
 
-        x = position along x-axis.
-        y = position along y-axis.
+    x = position along x-axis.
+    y = position along y-axis.
 
-        returns [r, theta]
+    returns r, theta
     """
     if x == 0.0 and y == 0.0:
         return 0, 0
@@ -45,12 +47,12 @@ def cart2pol(x, y):
 
 def pol2cart(r, theta):
     """
-        Converts r, theta to cartesian coords.
+    Converts r, theta to cartesian coords.
 
-        r = distance of a point from the origin.
-        theta = angle of the point with respect to the x-axis.
+    r = distance of a point from the origin.
+    theta = angle of the point with respect to the x-axis.
 
-        returns x, y
+    returns x, y
     """       
     x = r * cos(theta)
     y = r * sin(theta)
@@ -94,18 +96,18 @@ def scale(sx, sy):
     to scale a 2D affine point about the origin.
 
     sx = scale in x direction.
-        sx < 0.0 reflect about origin
-        sx = 1.0 (no scale),
-        0.0 < sx < 1.0 (reduce),
-        sx > 1.0 (increase),
-        sx = 0.0 (exception, undefined),
+    sx < 0.0 reflect about origin
+    sx = 1.0 (no scale),
+    0.0 < sx < 1.0 (reduce),
+    sx > 1.0 (increase),
+    sx = 0.0 (exception, undefined),
 
     sy = scale in y direction.
-        sy < 0.0 reflect about origin
-        sy = 1.0 (no scale),
-        0.0 < sy < 1.0 (reduce),
-        sy > 1.0 (increase),
-        sy = 0 (exception, undefined)
+    sy < 0.0 reflect about origin
+    sy = 1.0 (no scale),
+    0.0 < sy < 1.0 (reduce),
+    sy > 1.0 (increase),
+    sy = 0 (exception, undefined)
     """
     m = identity(3)
 
@@ -128,4 +130,3 @@ def shear(hx, hy):
     m[1, 0] = tan(hy)
     
     return m
-
