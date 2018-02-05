@@ -1,11 +1,11 @@
 """
-    Tests for `point.py`.
+    Tests spatial.py conversions.
 """
 import sys
 import unittest
 
 sys.path.insert(0, "..")
-from conversion import cart2pol, pol2cart
+from spatial import cart2pol, pol2cart
 
 class ConversionTests(unittest.TestCase):
     """Tests for 'conversion.py'."""
@@ -21,10 +21,6 @@ class ConversionTests(unittest.TestCase):
         cart = pol2cart(item[2], item[3])
         self.assertAlmostEqual(cart[0], item[0])
         self.assertAlmostEqual(cart[1], item[1])
-
-    def test_invalidinput(self):
-        """tests pol2cart raises exception on invalid inputs for r."""
-        self.assertRaises(ValueError, pol2cart, -0.1, 0.785398163)
 
     def test_all(self):
         """ tests conversion of (x, y) to (r, theta) and back."""
