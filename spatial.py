@@ -6,7 +6,7 @@
 
     p = point(1, 0)
     r = rotation(radians(45))
-    pout = r * p
+    po = r * p
 
     Methods: point, cart2pol, pol2cart, translation, rotation,
         scale, shear
